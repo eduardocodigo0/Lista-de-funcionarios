@@ -1,2 +1,22 @@
-# Lista de funcionarios
- Aplicativo de exemplo, que gerencia uma lista de funcionários
+# Lista de funcionários
+
+### Funcionalidades
+
+* Importar funcionários de um arquivo em formato TXT
+* Listar os funcionários cadastrados
+* Adicionar novos funcionários a lista
+* Editar e deletar funcionários do aplicativo
+
+### Ferramentas
+
+- [Room](https://developer.android.com/training/data-storage/room) - Persistência de dados
+- [RXJava](https://github.com/ReactiveX/RxJava) - Programação reativa
+
+
+
+ ### Telas
+![N|Solid](https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/097f4b40-d385-4bf0-89ab-73b909eb2e0e/dejcy6f-a72e3e1e-8694-4f9e-8491-3a8c97d66cd4.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzA5N2Y0YjQwLWQzODUtNGJmMC04OWFiLTczYjkwOWViMmUwZVwvZGVqY3k2Zi1hNzJlM2UxZS04Njk0LTRmOWUtODQ5MS0zYThjOTdkNjZjZDQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.6VmhcftCPEZ9IUSr6uPx8SU4D41147eibK3SSOEqHww)
+
+![N|Solid](https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/097f4b40-d385-4bf0-89ab-73b909eb2e0e/dejcy6k-ea0dbdb0-12e8-470d-b9ce-0edfc0c7f128.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzA5N2Y0YjQwLWQzODUtNGJmMC04OWFiLTczYjkwOWViMmUwZVwvZGVqY3k2ay1lYTBkYmRiMC0xMmU4LTQ3MGQtYjljZS0wZWRmYzBjN2YxMjgucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.ZBIvB-uL-UvAn57qrFadrJWrjPNh8X-HYKT9Yb115w4)
+
+![N|Solid](https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/097f4b40-d385-4bf0-89ab-73b909eb2e0e/dejcy6s-91b08616-3b13-40eb-9db2-0c3ec9a46f5f.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzA5N2Y0YjQwLWQzODUtNGJmMC04OWFiLTczYjkwOWViMmUwZVwvZGVqY3k2cy05MWIwODYxNi0zYjEzLTQwZWItOWRiMi0wYzNlYzlhNDZmNWYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.zM2UdCFwfNRHXma6MaE-JGy4zbHBoTExlPy9USM-MrU)

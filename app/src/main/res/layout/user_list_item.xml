@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:background="@drawable/round_corners"
+    android:layout_marginBottom="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tv_codigo_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/list_item_code_label"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/tv_codigo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_list_code_placeholder"
+        app:layout_constraintStart_toEndOf="@id/tv_codigo_label"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/tv_nome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textStyle="bold"
+        android:text="@string/list_item_name_placeholder"
+        app:layout_constraintTop_toBottomOf="@id/tv_codigo_label"
+        app:layout_constraintStart_toStartOf="@id/tv_codigo_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textSize="18sp"
+        android:gravity="start"
+        android:textColor="@color/black"
+        />
+
+    <TextView
+        android:id="@+id/tv_complemento_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_nome"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
+        android:text="@string/list_item_complement_label"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/black"
+        />
+
+    <TextView
+        android:id="@+id/tv_complemento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_complemento_label"
+        app:layout_constraintStart_toStartOf="@id/tv_complemento_label"
+        app:layout_constraintEnd_toEndOf="@id/tv_complemento_label"
+        android:text="@string/list_item_complement_placeholder"
+        android:textColor="@color/black"
+
+        />
+
+    <TextView
+        android:id="@+id/tv_reservado1_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_nome"
+        app:layout_constraintStart_toEndOf="@id/tv_complemento_label"
+        android:text="@string/list_item_reservado1_label"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/black"
+        />
+
+    <TextView
+        android:id="@+id/tv_reservado1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_reservado1_label"
+        app:layout_constraintStart_toStartOf="@id/tv_reservado1_label"
+        app:layout_constraintEnd_toEndOf="@id/tv_reservado1_label"
+        android:text="@string/list_item_reservado1_placeholder"
+        android:textColor="@color/black"
+
+        />
+
+    <TextView
+        android:id="@+id/tv_reservado2_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_nome"
+        app:layout_constraintStart_toEndOf="@id/tv_reservado1_label"
+        android:text="@string/list_item_reservado2_label"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/black"
+        />
+
+    <TextView
+        android:id="@+id/tv_reservado2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_reservado2_label"
+        app:layout_constraintStart_toStartOf="@id/tv_reservado2_label"
+        app:layout_constraintEnd_toEndOf="@id/tv_reservado2_label"
+        android:text="@string/list_item_reservado2_placeholder"
+        android:textColor="@color/black"
+
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

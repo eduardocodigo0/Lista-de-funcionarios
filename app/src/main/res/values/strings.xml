@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Desafio2</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="item_list_code_placeholder">0000001344</string>
+    <string name="list_item_code_label">Código:</string>
+    <string name="list_item_name_placeholder">LAURO GOMES FIGUEIREDO</string>
+    <string name="list_item_complement_label">Complemento</string>
+    <string name="list_item_reservado1_label">Reservado1</string>
+    <string name="list_item_reservado2_label">Reservado2</string>
+    <string name="list_item_complement_placeholder">M</string>
+    <string name="list_item_reservado1_placeholder">1166</string>
+    <string name="list_item_reservado2_placeholder">14</string>
+    <string name="et_nome_hint">Nome</string>
+    <string name="et_reservado2_hint">Reservado2</string>
+    <string name="et_reservado1_hint">Reservado1</string>
+    <string name="et_complemento_hint">Complemento</string>
+    <string name="fab_save_new_user_description">Salvar</string>
+    <string name="fab_update_user_description">Atualizar</string>
+    <string name="fab_create_user_description">Create new user</string>
+    <string name="lista_de_funcionarios_title">Lista de funcionários</string>
+    <string name="cadastrar_funcionario_title">Cadastrar Funcionário</string>
+    <string name="atualizar_funcionario_title">Atualizar Funcionário</string>
+    <string name="spinner_prompt">Ordenação:</string>
+    <string-array name="spinner_order">
+        <item>Código Crescente</item>
+        <item>Código Decrescente</item>
+        <item>Nome</item>
+    </string-array>
+</resources>
