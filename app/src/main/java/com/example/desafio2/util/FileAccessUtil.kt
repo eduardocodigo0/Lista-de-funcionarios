@@ -54,7 +54,7 @@ class FileAccessUtil {
             return linesList
         }
 
-        fun getDataFromUploadedFile(uri: Uri, context: Context) {
+        fun getDataFromUploadedFile(uri: Uri, context: Context): Boolean {
 
             val regex = "\\d*;[^0-9]*;[^0-9]*;\\d*;\\d*".toRegex()
             val userList = mutableListOf<UserModel>()
@@ -83,7 +83,7 @@ class FileAccessUtil {
                 }
             }
 
-            if (userList.isNotEmpty()) {
+            return if (userList.isNotEmpty()) {
                 val oldUsers = getUsersFromFile(context)
 
 
@@ -93,10 +93,9 @@ class FileAccessUtil {
 
                 saveUsersInFile(context, listToSave)
 
-                UploadStateManager.setState(UploadStates.SUCCESS)
+                true
             } else {
-                UploadStateManager.setState(UploadStates.ERROR)
-
+                false
             }
 
         }

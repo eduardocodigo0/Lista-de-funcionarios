@@ -3,22 +3,12 @@ package com.example.desafio2.ui
 import android.app.Application
 import android.net.Uri
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.*
-import com.example.desafio2.R
 import com.example.desafio2.data.Repository
 import com.example.desafio2.data.UserModel
-import com.example.desafio2.solinftec_navigation.FragmentInfo
-import com.example.desafio2.solinftec_navigation.SupportScreenManager
-import com.example.desafio2.util.FileAccessUtil
-import com.example.desafio2.util.UploadStateManager
-import com.example.desafio2.util.UploadStates
-import io.reactivex.Completable
 import io.reactivex.Observable
-import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.functions.Action
 import io.reactivex.schedulers.Schedulers
 
 
@@ -31,8 +21,8 @@ class UserListFragmentViewModel(application: Application) : AndroidViewModel(app
     private val mDataError: MutableLiveData<Boolean> = MutableLiveData()
     val dataError: LiveData<Boolean> get() = mDataError
 
-
-    val isUploadSuccess: LiveData<UploadStates> get() = UploadStateManager.getLiveData()
+    private val mIsUploadSuccess: MutableLiveData<Boolean> = MutableLiveData()
+    val isUploadSuccess: LiveData<Boolean> get() = mIsUploadSuccess
 
 
     private val cd = CompositeDisposable()
@@ -141,10 +131,22 @@ class UserListFragmentViewModel(application: Application) : AndroidViewModel(app
 
     fun getDataFromUploadedFile(uri: Uri) {
 
-        cd.add(Observable.just(repo.getDataFromUploadedFile(uri))
+        cd.add(repo.getDataFromUploadedFile(uri)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe()
+            .subscribe({ res ->
+                Log.d("BUGUINHO", " ----> FINALMENTE")
+                mIsUploadSuccess.postValue(res)
+            },
+                { err ->
+                    Log.d(
+                        "BUGUINHO",
+                        err.message
+                            ?: "ERRO EM -> UserListFragmentViewModel.getDataFromUploadedFile"
+                    )
+                    mIsUploadSuccess.postValue(false)
+                }
+            )
         )
     }
 
@@ -153,11 +155,8 @@ class UserListFragmentViewModel(application: Application) : AndroidViewModel(app
         mDataError.value = false
     }
 
-    fun setUploadIdle() {
-        UploadStateManager.setState(UploadStates.IDLE)
-    }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     fun dispose() {
         cd.dispose()
     }

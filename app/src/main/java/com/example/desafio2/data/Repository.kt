@@ -2,10 +2,10 @@ package com.example.desafio2.data
 
 import android.app.Application
 import android.net.Uri
-import android.util.Log
 import com.example.desafio2.util.FileAccessUtil
 import io.reactivex.Observable
 import io.reactivex.Single
+import java.lang.Exception
 
 class Repository(val application: Application) {
 
@@ -57,8 +57,16 @@ class Repository(val application: Application) {
         return FileAccessUtil.saveUsersInFile(application, list)
     }
 
-    fun getDataFromUploadedFile(uri: Uri){
-        return FileAccessUtil.getDataFromUploadedFile(uri, application)
+    fun getDataFromUploadedFile(uri: Uri) = Observable.create<Boolean>{ emmiter ->
+
+        try{
+
+            val success = FileAccessUtil.getDataFromUploadedFile(uri, application)
+            emmiter.onNext(success)
+
+        }catch (err: Exception){
+            emmiter.onError(err)
+        }
     }
 
 }

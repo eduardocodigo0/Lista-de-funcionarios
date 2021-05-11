@@ -17,18 +17,22 @@ abstract class UserRoomDatabase : RoomDatabase() {
 
         fun getDataBaseInstance(application: Application): UserRoomDatabase {
 
-            if (db_instance != null) {
-                return db_instance!!
+            db_instance?.let {
+                return it
             }
 
-            db_instance = Room.databaseBuilder(
-                application,
-                UserRoomDatabase::class.java,
-                Constants.database_name
-            ).fallbackToDestructiveMigration()
-                .build()
+            db_instance.run {
+               val newDatabaseInstance  =  Room.databaseBuilder(
+                    application,
+                    UserRoomDatabase::class.java,
+                    Constants.database_name
+                ).fallbackToDestructiveMigration()
+                    .build()
 
-            return db_instance!!
+                db_instance = newDatabaseInstance
+                return newDatabaseInstance
+            }
+
         }
 
     }

@@ -9,6 +9,7 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
+
     defaultConfig {
         applicationId "com.example.desafio2"
         minSdkVersion 26
@@ -32,6 +33,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    viewBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -48,9 +52,6 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-
-    //BUGFIX FOR ERROR ->  E/libc: Access denied finding property "ro.serialno"
-    implementation "androidx.localbroadcastmanager:localbroadcastmanager:1.0.0"
 
     //ROOM
     implementation "androidx.room:room-runtime:$room_version"
