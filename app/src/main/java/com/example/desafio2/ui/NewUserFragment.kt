@@ -11,8 +11,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.desafio2.R
 import com.example.desafio2.data.UserModel
 import com.example.desafio2.databinding.FragmentNewUserBinding
+import com.example.desafio2.solinftec_navigation.EduardoScreenManager
 import com.example.desafio2.solinftec_navigation.FragmentInfo
-import com.example.desafio2.solinftec_navigation.SupportScreenManager
 
 
 class newUserFragment : Fragment() {
@@ -80,7 +80,7 @@ class newUserFragment : Fragment() {
             Toast.makeText(context, "Um novo funcionário foi adicionado!", Toast.LENGTH_SHORT)
                 .show()
             mViewModel.resetValues()
-            SupportScreenManager.goTo(FragmentInfo(R.id.userListFragment))
+            EduardoScreenManager.goTo(FragmentInfo(R.id.userListFragment))
         }
     }
 

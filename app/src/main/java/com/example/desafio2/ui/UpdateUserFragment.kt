@@ -15,8 +15,9 @@ import com.example.desafio2.Constants
 import com.example.desafio2.R
 import com.example.desafio2.data.UserModel
 import com.example.desafio2.databinding.FragmentUpdateUserBinding
+import com.example.desafio2.solinftec_navigation.EduardoScreenManager
 import com.example.desafio2.solinftec_navigation.FragmentInfo
-import com.example.desafio2.solinftec_navigation.SupportScreenManager
+
 
 
 class updateUserFragment : Fragment() {
@@ -68,7 +69,7 @@ class updateUserFragment : Fragment() {
             Toast.makeText(context, "O funcionário foi deletado com sucesso!", Toast.LENGTH_SHORT)
                 .show()
             mViewModel.resetValues()
-            SupportScreenManager.goTo(FragmentInfo(R.id.userListFragment))
+            EduardoScreenManager.goTo(FragmentInfo(R.id.userListFragment))
         }
     }
 
@@ -77,7 +78,7 @@ class updateUserFragment : Fragment() {
             Toast.makeText(context, "O funcionário foi atualizado com sucesso!", Toast.LENGTH_SHORT)
                 .show()
             mViewModel.resetValues()
-            SupportScreenManager.goTo(FragmentInfo(R.id.userListFragment))
+            EduardoScreenManager.goTo(FragmentInfo(R.id.userListFragment))
         }
     }
 

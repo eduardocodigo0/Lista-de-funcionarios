@@ -17,8 +17,8 @@ import com.example.desafio2.R
 import com.example.desafio2.adapter.UserRecyclerViewAdapter
 import com.example.desafio2.data.UserModel
 import com.example.desafio2.databinding.FragmentUserListBinding
+import com.example.desafio2.solinftec_navigation.EduardoScreenManager
 import com.example.desafio2.solinftec_navigation.FragmentInfo
-import com.example.desafio2.solinftec_navigation.SupportScreenManager
 
 class UserListFragment : Fragment() {
 
@@ -58,7 +58,7 @@ class UserListFragment : Fragment() {
                     user
                 )
 
-                SupportScreenManager.goTo(FragmentInfo(R.id.updateUserFragment, bundle))
+                EduardoScreenManager.goTo(FragmentInfo(R.id.updateUserFragment, bundle))
             }
             binding.pbLoading.visibility = View.GONE
             binding.rvListUser.visibility = View.VISIBLE
@@ -89,7 +89,7 @@ class UserListFragment : Fragment() {
         }
 
         Navigation.findNavController(requireActivity(), R.id.f_nav_host).popBackStack()
-        SupportScreenManager.goTo(FragmentInfo(R.id.userListFragment))
+        EduardoScreenManager.goTo(FragmentInfo(R.id.userListFragment))
 
     }
 
@@ -98,7 +98,7 @@ class UserListFragment : Fragment() {
 
             R.id.fab_new_user -> {
                 val fragmentInfo = FragmentInfo(R.id.newUserFragment)
-                SupportScreenManager.goTo(fragmentInfo)
+                EduardoScreenManager.goTo(fragmentInfo)
             }
 
             R.id.fab_import_users -> {
@@ -143,7 +143,7 @@ class UserListFragment : Fragment() {
 
         } else {
             Navigation.findNavController(requireActivity(), R.id.f_nav_host).popBackStack()
-            SupportScreenManager.goTo(FragmentInfo(R.id.userListFragment))
+            EduardoScreenManager.goTo(FragmentInfo(R.id.userListFragment))
         }
 
     }
