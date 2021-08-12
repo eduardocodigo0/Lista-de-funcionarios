@@ -1,15 +1,15 @@
 package com.example.desafio2.data
 
-import android.app.Application
+import android.content.Context
 import android.net.Uri
 import com.example.desafio2.util.FileAccessUtil
 import io.reactivex.Observable
 import io.reactivex.Single
 import java.lang.Exception
 
-class Repository(val application: Application) {
+class Repository(val context: Context) {
 
-    private val room = UserRoomDatabase.getDataBaseInstance(application)
+    private val room = UserRoomDatabase.getDataBaseInstance(context)
 
 
     //ROOM METHODS
@@ -50,18 +50,18 @@ class Repository(val application: Application) {
     //TXT FILE METHODS
 
     fun getAllUserFromTXT(): MutableList<UserModel> {
-        return FileAccessUtil.getUsersFromFile(application)
+        return FileAccessUtil.getUsersFromFile(context)
     }
 
     fun saveAllUsersInTXT(list: MutableList<UserModel>) {
-        return FileAccessUtil.saveUsersInFile(application, list)
+        return FileAccessUtil.saveUsersInFile(context, list)
     }
 
     fun getDataFromUploadedFile(uri: Uri) = Observable.create<Boolean>{ emmiter ->
 
         try{
 
-            val success = FileAccessUtil.getDataFromUploadedFile(uri, application)
+            val success = FileAccessUtil.getDataFromUploadedFile(uri, context)
             emmiter.onNext(success)
 
         }catch (err: Exception){

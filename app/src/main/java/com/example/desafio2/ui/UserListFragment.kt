@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.Toast
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.desafio2.Constants
 import com.example.desafio2.R
@@ -19,10 +18,11 @@ import com.example.desafio2.data.UserModel
 import com.example.desafio2.databinding.FragmentUserListBinding
 import com.example.desafio2.solinftec_navigation.EduardoScreenManager
 import com.example.desafio2.solinftec_navigation.FragmentInfo
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class UserListFragment : Fragment() {
 
-    private lateinit var mViewModel: UserListFragmentViewModel
+    private val mViewModel: UserListFragmentViewModel by viewModel()
     private var _binding: FragmentUserListBinding? = null
     private val binding get() = _binding!!
 
@@ -33,9 +33,6 @@ class UserListFragment : Fragment() {
 
         _binding = FragmentUserListBinding.inflate(inflater, container, false)
 
-        mViewModel =
-            ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application)
-                .create(UserListFragmentViewModel::class.java)
         binding.fabNewUser.setOnClickListener(mListener)
         binding.fabImportUsers.setOnClickListener(mListener)
         binding.spinnerOrder.onItemSelectedListener = mSpinnerListener

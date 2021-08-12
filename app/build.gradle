@@ -75,6 +75,10 @@ dependencies {
     //Dependencia do SupportScreenManager
     implementation 'com.jakewharton.rxrelay2:rxrelay:2.0.0'
 
+    //KOIN
+    def koin_version= "3.1.2"
+    implementation "io.insert-koin:koin-core:$koin_version"
+    implementation "io.insert-koin:koin-android:$koin_version"
 
     //LeakCanary
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'

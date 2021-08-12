@@ -10,14 +10,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.example.desafio2.Constants
 import com.example.desafio2.R
 import com.example.desafio2.data.UserModel
 import com.example.desafio2.databinding.FragmentUpdateUserBinding
 import com.example.desafio2.solinftec_navigation.EduardoScreenManager
 import com.example.desafio2.solinftec_navigation.FragmentInfo
-
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class updateUserFragment : Fragment() {
@@ -27,7 +26,7 @@ class updateUserFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var currentUser: UserModel
-    private lateinit var mViewModel: UpdateUserFragmentViewModel
+    private val mViewModel: UpdateUserFragmentViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,9 +42,6 @@ class updateUserFragment : Fragment() {
         binding.etUpdateReservado1.setText(currentUser.reservado1)
         binding.etUpdateReservado2.setText(currentUser.reservado2)
 
-        mViewModel =
-            ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application)
-                .create(UpdateUserFragmentViewModel::class.java)
         mViewModel.dataError.observe(viewLifecycleOwner, mDataErrorObserver)
         mViewModel.isUserDeleted.observe(viewLifecycleOwner, mDeleteObserver)
         mViewModel.isUserUpdated.observe(viewLifecycleOwner, mUpdateObserver)

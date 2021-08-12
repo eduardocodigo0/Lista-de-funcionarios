@@ -1,9 +1,13 @@
 package com.example.desafio2.ui
 
-import android.app.Application
 import android.net.Uri
 import android.util.Log
-import androidx.lifecycle.*
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.OnLifecycleEvent
 import com.example.desafio2.data.Repository
 import com.example.desafio2.data.UserModel
 import io.reactivex.Observable
@@ -12,7 +16,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
 
-class UserListFragmentViewModel(application: Application) : AndroidViewModel(application),
+class UserListFragmentViewModel(private val repo: Repository) : ViewModel(),
     LifecycleObserver {
 
     private var mUsersList: MutableLiveData<List<UserModel>> = MutableLiveData()
@@ -26,8 +30,6 @@ class UserListFragmentViewModel(application: Application) : AndroidViewModel(app
 
 
     private val cd = CompositeDisposable()
-    private val repo = Repository(application)
-
 
     init {
         clearError()

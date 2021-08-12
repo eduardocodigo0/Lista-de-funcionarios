@@ -7,17 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.example.desafio2.R
 import com.example.desafio2.data.UserModel
 import com.example.desafio2.databinding.FragmentNewUserBinding
 import com.example.desafio2.solinftec_navigation.EduardoScreenManager
 import com.example.desafio2.solinftec_navigation.FragmentInfo
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class newUserFragment : Fragment() {
 
-    private lateinit var mViewModel: NewUserFragmentViewModel
+    private val mViewModel: NewUserFragmentViewModel by viewModel()
     private var _binding: FragmentNewUserBinding? = null
     private val binding get() = _binding!!
 
@@ -27,11 +27,6 @@ class newUserFragment : Fragment() {
     ): View {
 
         _binding = FragmentNewUserBinding.inflate(inflater, container, false)
-
-
-        mViewModel =
-            ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application)
-                .create(NewUserFragmentViewModel::class.java)
 
         mViewModel.dataError.observe(viewLifecycleOwner, mDataErrorObserver)
         mViewModel.isUserSaved.observe(viewLifecycleOwner, mIsUserSavedObserver)

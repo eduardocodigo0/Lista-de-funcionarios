@@ -1,6 +1,7 @@
 package com.example.desafio2.data
 
 import android.app.Application
+import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -15,7 +16,7 @@ abstract class UserRoomDatabase : RoomDatabase() {
 
         private var db_instance: UserRoomDatabase? = null
 
-        fun getDataBaseInstance(application: Application): UserRoomDatabase {
+        fun getDataBaseInstance(context: Context): UserRoomDatabase {
 
             db_instance?.let {
                 return it
@@ -23,7 +24,7 @@ abstract class UserRoomDatabase : RoomDatabase() {
 
             db_instance.run {
                val newDatabaseInstance  =  Room.databaseBuilder(
-                    application,
+                    context,
                     UserRoomDatabase::class.java,
                     Constants.database_name
                 ).fallbackToDestructiveMigration()
